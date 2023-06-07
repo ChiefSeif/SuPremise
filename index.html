@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sum It</title>
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    .container {
+      width: 600px;
+      margin: 0 auto;
+    }
+    .textbox {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #result {
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+<!---------------------------------------------------------------------------->
+</head>
+<body>
+  <h1>Sum It</h1>
+  <div class="container">
+    <input type="text" class="textbox" id="input1" placeholder="Text 1">
+    <input type="text" class="textbox" id="input2" placeholder="Text 2">
+    <input type="text" class="textbox" id="input3" placeholder="Text 3">
+    <input type="text" class="textbox" id="input4" placeholder="Text 4">
+    <input type="text" class="textbox" id="input5" placeholder="Text 5">
+    <textarea id="result" readonly></textarea>
+    <button onclick="generateResult()">Generate Result</button>
+  </div>
+<!---------------------------------------------------------------------------->
+  <script>
+    function generateResult() {
+      // Get input values from textboxes
+      const input1 = document.getElementById('input1').value;
+      const input2 = document.getElementById('input2').value;
+      const input3 = document.getElementById('input3').value;
+      const input4 = document.getElementById('input4').value;
+      const input5 = document.getElementById('input5').value;
+
+      // Generate random sentences
+      const sentences = [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+        'Nemo enim ipsam voluptatem quia voluptas sit aspernatur.',
+        'Duis aute irure dolor in reprehenderit in voluptate velit.',
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+      ];
+
+      // Combine user input and random sentences
+      const result = `${input1} ${getRandomSentence()} ${input2} ${getRandomSentence()} ${input3} ${getRandomSentence()} ${input4} ${getRandomSentence()} ${input5}`;
+
+      // Display the result in the large textbox
+      document.getElementById('result').value = result;
+    }
+
+    function getRandomSentence() {
+      const sentences = [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+        'Nemo enim ipsam voluptatem quia voluptas sit aspernatur.',
+        'Duis aute irure dolor in reprehenderit in voluptate velit.',
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+      ];
+      const randomIndex = Math.floor(Math.random() * sentences.length);
+      return sentences[randomIndex];
+    }
+  </script>
+</body>
+</html>
